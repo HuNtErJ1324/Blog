@@ -9,7 +9,9 @@ const BlogApp = () => {
 					<h1>Justin Blog</h1>
 				</div>
 			</header>
-			<BlogGrid />
+			<div className="main-content">
+				<BlogGrid />
+			</div>
 			<footer>
 				<p>&copy; 2024 Justin Chae</p>
 			</footer>
