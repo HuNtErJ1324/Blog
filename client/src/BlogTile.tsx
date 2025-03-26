@@ -8,14 +8,18 @@ export type BlogTileProps = {
 }
 
 const BlogTile = ({ title, description, image, link, date }: BlogTileProps) => {
-	return <>
-		<a href={link}>
-			<img src={image} />
-			<strong>{title}</strong>
-			<p>{date.toDateString()}</p>
-			<p>{description}</p>
-		</a>
-	</>
-}
+	return (
+		<div className="blog-tile">
+			<a href={link} target="_blank" rel="noopener noreferrer">
+				<img className="blog-image" src={image} alt={title} />
+				<div className="blog-content">
+					<h3 className="blog-title">{title}</h3>
+					<time className="blog-date">{date.toDateString()}</time>
+					<p className="blog-description">{description}</p>
+				</div>
+			</a>
+		</div>
+	);
+};
 
 export default BlogTile;
