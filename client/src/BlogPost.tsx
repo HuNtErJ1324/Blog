@@ -6,6 +6,7 @@ function BlogPost() {
   const { slug } = useParams(); //get post name from URL
   const [content, setContent] = useState("");
 
+  //TODO: fix when wrong file name is inputted
   useEffect(() => {
     fetch(`src/posts/${slug}.md`) //load md file
       .then((response) => response.text())
