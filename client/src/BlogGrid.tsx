@@ -1,17 +1,45 @@
+import { useState, useEffect } from 'react';
 import { BlogTileProps } from './BlogTile'
 import BlogTile from './BlogTile'
 
 const BlogGrid = () => {
-	const tiles: BlogTileProps[] =
-		[
-			{
-				id: 1n,
-				title: "post1",
-				description: "Learn the fundamentals of React and how to build dynamic web applications.",
-				image: "https://static0.colliderimages.com/wordpress/wp-content/uploads/2022/09/Pokemon-Salamence-Hunter-J.jpg",
-				date: new Date("2023-12-01"),
-			},
-		];
+	const [tiles, setTiles] = useState<BlogTileProps[]>([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState<Error | null>(null);
+
+	useEffect(() => {
+		fetch('/api/posts')
+			.then(response => {
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+				return response.json();
+			})
+			.then(data => {
+				// Convert date strings back to Date objects
+				const formattedData = data.map((post: any) => ({
+					...post,
+					date: new Date(post.date),
+					id: BigInt(post.id) // Convert id to BigInt
+				}));
+				setTiles(formattedData);
+			})
+			.catch(err => {
+				console.error('Error fetching posts:', err);
+				setError(err);
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
+	}, []);
+
+	if (isLoading) {
+		return <div className="blog-grid">Loading posts...</div>;
+	}
+
+	if (error) {
+		return <div className="blog-grid">Error loading posts: {error.message}</div>;
+	}
 
 	return (
 		<div className="blog-grid">

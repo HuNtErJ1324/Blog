@@ -9,13 +9,15 @@ const BlogApp = () => {
 			<div className="app-container">
 				<header>
 					<div>
-						<h1>Justin Blog</h1>
+						<h1>
+							<a href="/">Justin's Blog</a>
+						</h1>
 					</div>
 				</header>
 				<div className="main-content">
 					<Routes>
 						<Route path="/" element={<BlogGrid />} />
-						<Route path="/:slug" element={<BlogPost />} />a
+						<Route path="/:slug" element={<BlogPost />} />
 					</Routes>
 				</div>
 				<footer>
