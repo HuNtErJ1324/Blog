@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "upload": "node upload-posts.js",
+    "setup": "node setup-database.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +14,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "gray-matter": "^4.0.3",
+    "slugify": "^1.6.6",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
   },
