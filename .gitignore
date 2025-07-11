@@ -1,3 +1,12 @@
+# Dependencies
+/node_modules
+/client/node_modules/
+/server/node_modules/
+
+# Build output
+/dist
+/client/dist
+
 # Logs
 logs
 *.log
@@ -7,10 +16,14 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Environment variables
+.env
+.env*.local
 *.local
+
+# SQLite Database
+/server/blog.db
+/server/blog.db-journal
 
 # Editor directories and files
 .vscode/*

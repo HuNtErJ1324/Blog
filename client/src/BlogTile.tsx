@@ -1,25 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { Post } from "./interfaces/Post";
 
-function toSlug(title: string): string {
-	return title
-		.toLowerCase()
-		.replace(/\s+/g, '-') //replace spaces with dash
-		.replace(/[^\w-]+/g, ''); //remove special chars
-}
+export type BlogTileProps = Omit<Post, "content">;
 
-export type BlogTileProps = {
-	id: bigint
-	title: string,
-	description: string,
-	image: string,
-	date: Date
-}
-
-const BlogTile = ({ title, description, image, date }: BlogTileProps) => {
-	console.log(title, toSlug(title))
+const BlogTile = ({ slug, title, description, image, date }: BlogTileProps) => {
 	return (
 		<div className="blog-tile">
-			<Link to={`/${toSlug(title)}`}>
+			<Link to={`/${slug}`}>
 				<button>
 					<img className="blog-image" src={image} alt={title} />
 					<div className="blog-metadata">
@@ -34,3 +21,4 @@ const BlogTile = ({ title, description, image, date }: BlogTileProps) => {
 };
 
 export default BlogTile;
+

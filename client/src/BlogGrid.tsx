@@ -1,31 +1,30 @@
-import { useState, useEffect } from 'react';
-import { BlogTileProps } from './BlogTile'
-import BlogTile from './BlogTile'
+import { useState, useEffect } from "react";
+import BlogTile from "./BlogTile";
+import { Post } from "./interfaces/Post";
 
 const BlogGrid = () => {
-	const [tiles, setTiles] = useState<BlogTileProps[]>([]);
+	const [tiles, setTiles] = useState<Post[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState<Error | null>(null);
 
 	useEffect(() => {
-		fetch('/api/posts')
-			.then(response => {
+		fetch(`${import.meta.env.VITE_API_BASE_URL}/api/posts`)
+			.then((response) => {
 				if (!response.ok) {
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}
 				return response.json();
 			})
-			.then(data => {
+			.then((data: Post[]) => {
 				// Convert date strings back to Date objects
-				const formattedData = data.map((post: any) => ({
+				const formattedData = data.map((post) => ({
 					...post,
 					date: new Date(post.date),
-					id: BigInt(post.id) // Convert id to BigInt
 				}));
 				setTiles(formattedData);
 			})
-			.catch(err => {
-				console.error('Error fetching posts:', err);
+			.catch((err) => {
+				console.error("Error fetching posts:", err);
 				setError(err);
 			})
 			.finally(() => {
@@ -45,9 +44,10 @@ const BlogGrid = () => {
 		<div className="blog-grid">
 			{tiles.map((post) => (
 				<BlogTile
-					key={post.id.toString()}
+					key={post.id}
 					id={post.id}
 					title={post.title}
+					slug={post.slug}
 					description={post.description}
 					image={post.image}
 					date={post.date}
@@ -55,6 +55,6 @@ const BlogGrid = () => {
 			))}
 		</div>
 	);
-}
+};
 
 export default BlogGrid;
