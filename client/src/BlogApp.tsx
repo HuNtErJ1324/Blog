@@ -13,6 +13,9 @@ const BlogApp = () => {
 							<a href="/">Justin's Blog</a>
 						</h1>
 					</div>
+					<nav>
+						<a href="https://justin-chae.org">Home</a>
+					</nav>
 				</header>
 				<div className="main-content">
 					<Routes>
