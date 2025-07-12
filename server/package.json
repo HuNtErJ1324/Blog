@@ -6,7 +6,8 @@
     "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "upload": "node upload-posts.js",
-    "setup": "node setup-database.js"
+    "setup": "node setup-database.js",
+    "delete": "node delete-post.js"
   },
   "keywords": [],
   "author": "",
