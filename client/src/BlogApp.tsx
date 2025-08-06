@@ -24,7 +24,7 @@ const BlogApp = () => {
 					</Routes>
 				</div>
 				<footer>
-					<p>&copy; 2024 Justin Chae</p>
+					<p>&copy; 2025 Justin Chae</p>
 				</footer>
 			</div>
 		</Router>

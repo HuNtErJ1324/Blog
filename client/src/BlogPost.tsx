@@ -50,10 +50,11 @@ function BlogPost() {
 		);
 	}
 
+	//TODO: finish setting up tailwind
 	return (
-		<section className="blog-content">
-			<ReactMarkdown>{post?.content ?? ""}</ReactMarkdown>
-		</section>
+		<article className="prose lg:prose-xl blog-content">
+				<ReactMarkdown>{post?.content ?? ""}</ReactMarkdown>
+			</article>
 	);
 }
 
