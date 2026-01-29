@@ -3,22 +3,32 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-    "scripts": {
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "upload": "node upload-posts.js",
-    "setup": "node setup-database.js",
-    "delete": "node delete-post.js"
+    "delete": "node delete-post.js",
+    "seed-admin": "node scripts/seed-admin.js",
+    "backup": "node scripts/backup.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-rate-limit": "^8.2.1",
+    "express-session": "^1.18.2",
     "gray-matter": "^4.0.3",
+    "helmet": "^8.1.0",
+    "joi": "^18.0.2",
+    "multer": "^2.0.2",
+    "sanitize-html": "^2.17.0",
     "slugify": "^1.6.6",
     "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "winston": "^3.19.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
     "dotenv": "^17.2.0"

@@ -3,21 +3,22 @@
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	gap: 20px;
 	padding: 1.5em;
-	max-width: 1200px;
+	max-width: 1000px;
 	margin: auto;
 }
 
 .blog-tile {
 	text-align: left;
-	background: #1f1f1f;
-	border-radius: 8px;
+	background: transparent;
+	border: 1px solid #333;
+	border-radius: 4px;
 	overflow: hidden;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-	transition: transform 0.3s ease-in-out;
+	transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 .blog-tile:hover {
-	transform: translateY(-5px);
+	transform: translateY(-3px);
+	border-color: #555;
 }
 
 .blog-tile button {
@@ -28,6 +29,7 @@
 	width: 100%;
 	padding: 0;
 	font-family: inherit;
+	cursor: pointer;
 }
 
 .blog-image {
@@ -40,15 +42,16 @@
 	padding: 1.5em;
 	max-width: 800px;
 	margin: auto;
-	background: #1f1f1f;
+	background: transparent;
 	margin-top: 1em;
-	border-radius: 8px;
 	text-align: left;
 	margin-bottom: 1em;
 }
 
 .blog-content img {
-	border: 1px solid #ffffff;
+	border: 1px solid #333;
+	border-radius: 4px;
+	max-width: 100%;
 }
 
 .blog-metadata {
@@ -57,7 +60,7 @@
 }
 
 .blog-title {
-	font-size: 2em;
+	font-size: 1.8em;
 	font-weight: bold;
 	margin-bottom: 5px;
 	color: #e0e0e0;
@@ -65,9 +68,54 @@
 
 .blog-date {
 	font-size: 0.9em;
-	color: #b0b0b0;
+	color: #888;
+	margin-bottom: 0.5em;
 }
 
 .blog-description {
-	font-size: 1.5em
+	font-size: 1.1em;
+	color: #b0b0b0;
+}
+
+.back-link {
+	display: inline-block;
+	margin-bottom: 1em;
+	font-size: 1em;
+}
+
+.post-body {
+	line-height: 1.8;
+}
+
+.post-body p {
+	margin-bottom: 1em;
+}
+
+.post-body h1,
+.post-body h2,
+.post-body h3 {
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+.post-body pre {
+	background: #1a1a1a;
+	padding: 1em;
+	border-radius: 4px;
+	overflow-x: auto;
+	margin: 1em 0;
+}
+
+.post-body code {
+	background: #1a1a1a;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-family: monospace;
+}
+
+.post-body blockquote {
+	border-left: 3px solid #444;
+	padding-left: 1em;
+	margin: 1em 0;
+	color: #b0b0b0;
 }

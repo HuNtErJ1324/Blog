@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
+import { sanitizeHtml } from "./utils/sanitize";
 import { Post } from "./interfaces/Post";
 
 function BlogPost() {
@@ -50,11 +50,12 @@ function BlogPost() {
 		);
 	}
 
-	//TODO: finish setting up tailwind
+	const sanitizedContent = sanitizeHtml(post?.content ?? '');
+
 	return (
 		<article className="prose lg:prose-xl blog-content">
-				<ReactMarkdown>{post?.content ?? ""}</ReactMarkdown>
-			</article>
+			<div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+		</article>
 	);
 }
 

@@ -14,10 +14,6 @@
 	min-height: 100vh;
 }
 
-div {
-	text-align: center;
-}
-
 body {
 	font-family: 'Georgia', serif;
 	font-size: 20px;
@@ -29,7 +25,6 @@ body {
 a {
 	color: #e0e0e0;
 	text-decoration: none;
-	border-bottom: 1px solid #e0e0e0;
 }
 
 a:visited {
@@ -38,23 +33,27 @@ a:visited {
 
 a:hover {
 	color: #ffffff;
-	border-bottom: 1px solid #ffffff;
 }
 
 header {
-	background-color: #1f1f1f;
+	background-color: #121212;
 	color: #e0e0e0;
 	padding: 1.5em;
 	text-align: center;
 }
 
 header h1 {
-	margin-bottom: 0.5em;
+	margin-bottom: 0.2em;
+}
+
+header p {
+	color: #b0b0b0;
 }
 
 h2 {
 	color: #e0e0e0;
 	margin-bottom: 0.5em;
+	padding-bottom: 0.2em;
 }
 
 ul {
@@ -75,11 +74,88 @@ img {
 footer {
 	text-align: center;
 	padding: 1em;
-	background-color: #1f1f1f;
-	color: #e0e0e0;
+	background-color: #121212;
+	color: #b0b0b0;
 	width: 100%;
 }
 
 .main-content {
 	flex: 1;
+}
+
+nav[role="navigation"] {
+	background-color: #121212;
+	padding: 0.8em;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+nav[role="navigation"] a {
+	margin: 0 0.8em;
+	font-size: 18px;
+}
+
+.profile-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2em;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.profile-text {
+	text-align: left;
+}
+
+.profile-text h1 {
+	margin-bottom: 0.2em;
+}
+
+.korean-name {
+	color: #b0b0b0;
+}
+
+.profile-image {
+	border-radius: 8px;
+	max-width: 250px;
+	height: auto;
+}
+
+@media (max-width: 600px) {
+	.profile-container {
+		flex-direction: column-reverse;
+		text-align: center;
+	}
+	
+	.profile-text {
+		text-align: center;
+	}
+}
+
+section {
+	max-width: 900px;
+	margin: 0 auto 2em;
+	padding: 1.5em;
+}
+
+section p {
+	margin-bottom: 0.5em;
+}
+
+section ul {
+	margin-left: 1em;
+}
+
+section li {
+	list-style-type: disc;
+	margin-left: 1.5em;
+}
+
+section a {
+	text-decoration: underline;
+}
+
+#contact a {
+	text-decoration: underline;
 }
